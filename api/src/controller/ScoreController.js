@@ -6,7 +6,8 @@ module.exports = {
       const scores = await connection("scores");
       return res.status(200).json({
         sucess: true,
-        msg: scores,
+        msg: "scores found",
+        scores,
       });
     } catch (error) {
       return res.status(400).json({
@@ -29,7 +30,8 @@ module.exports = {
         });
         return res.status(200).json({
           sucess: true,
-          msg: {
+          msg: "scores created",
+          score: {
             ID: id,
             score: score,
           },
@@ -37,7 +39,8 @@ module.exports = {
       } else {
         return res.status(200).json({
           sucess: true,
-          msg: {
+          msg: "scores found",
+          score: {
             ID: id,
             score: score_client[0].score,
           },
