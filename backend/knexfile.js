@@ -6,7 +6,7 @@ module.exports = {
       user: "root",
       password: "root",
 
-      database: "api",
+      database: "backend",
     },
     pool: {
       min: 2,
@@ -25,7 +25,7 @@ module.exports = {
       host: "docker_db_1",
       user: "root",
       password: "root",
-      database: "api",
+      database: "backend",
     },
     migrations: {
       directory: "./src/database/migrations",

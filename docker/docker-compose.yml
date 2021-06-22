@@ -3,13 +3,23 @@ version: "3.1"
 services:
   api:
     build:
-      context: ./api
+      context: ../api
       dockerfile: Dockerfile
     command: npm run ${NODE_ENV}
     ports:
       - "2000:2000"
     volumes:
-      - .:/usr/app/
+      - ..:/usr/app/
+
+  backend:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    command: npm run ${NODE_ENV}
+    ports:
+      - "3000:3000"
+    volumes:
+      - ..:/usr/app/
 
   db:
     image: mysql
@@ -19,4 +29,6 @@ services:
       - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: app
+      MYSQL_DATABASE: root
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/setup.sql

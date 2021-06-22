@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const router = Router();
 
-const validation = require("./validation/validation");
+const validation = require("./validation");
 const ScoreController = require("./controller/ScoreController");
 
 router.get("/", ScoreController.index);
