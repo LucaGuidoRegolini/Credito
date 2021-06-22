@@ -19,6 +19,15 @@ module.exports = {
       directory: "./src/database/seeds",
     },
   },
+   docker: {
+    client: "mysql",
+    connection: {
+      host: "credito_db_1",
+      user: "root",
+      password: "root",
+      database: "app",
+    },
+  },
 
   staging: {
     client: "postgresql",

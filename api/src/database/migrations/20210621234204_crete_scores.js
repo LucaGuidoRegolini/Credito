@@ -1,6 +1,6 @@
 exports.up = (knex) => {
   return knex.schema.createTable("scores", (table) => {
-    table.increments("ID").primary().unsigned();
+    table.string("ID", 14).primary();
     table.integer("score").unsigned();
     table.timestamp("created_at").default(knex.fn.now());
   });
