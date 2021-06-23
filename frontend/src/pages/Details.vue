@@ -32,6 +32,23 @@
           <p class="psimulation total">{{ parcel }}</p>
           <p class="psimulation">por mês</p>
         </div>
+        <div class="buttons">
+          <Button
+            buttonstyle="return"
+            @activated="lost()"
+            class="btn-confg"
+            type="button"
+            text="Voltar"
+          />
+          <div class="space"></div>
+          <Button
+            buttonstyle="continue"
+            @activated="buy()"
+            class="btn-confg"
+            type="button"
+            text="Comprar"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -39,13 +56,12 @@
 
 <script>
 import Header from "../components/Header";
+import Button from "../components/Button";
 import backend from "../api/backend";
 export default {
   components: {
     Header,
-    mode: "",
-    score: "",
-    name: ""
+    Button
   },
   data() {
     return {
@@ -53,7 +69,8 @@ export default {
       fees: "",
       max: "",
       parcels: "",
-      parcel: ""
+      parcel: "",
+      id: ""
     };
   },
   beforeMount() {
@@ -95,6 +112,28 @@ export default {
       const parcel =
         (this.max * (1 + this.fees / 100) ** this.parcels) / this.parcels;
       this.parcel = parcel.toFixed(2);
+    },
+
+    lost() {
+      this.$router.push({ name: "User" });
+    },
+
+    async buy() {
+      const user = JSON.parse(localStorage["user"]);
+      this.id = user.id;
+
+      const resp = await backend.post("/sale/", {
+        ID_client: this.id,
+        id: this.$route.params.id,
+        parcels: this.parcels
+      });
+      console.log(resp);
+      if (resp.data.sucess == true) {
+        alert("Credito comprado");
+      } else {
+        alert("houve algum erro, tente de novo mais tarde ");
+      }
+      this.$router.push({ name: "User" });
     }
   }
 };
@@ -161,6 +200,10 @@ export default {
   width: 43px;
   height: 23px;
   font-size: 13px;
+  border-radius: 8px;
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: 0;
 }
 
 .simulation {
@@ -168,14 +211,23 @@ export default {
   margin-right: 40px;
   margin-left: 40px;
   color: rgb(63, 62, 62);
+  margin-bottom: 0px;
 }
 
 .psimulation {
   margin-right: 5px;
+  margin-bottom: 0px;
 }
 
 .total {
   color: red;
   font-weight: bolder;
+}
+
+.buttons {
+  margin-top: 120px;
+  display: flex;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 </style>

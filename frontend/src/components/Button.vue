@@ -31,6 +31,7 @@ export default {
   computed: {
     ButtonStyle() {
       if (this.buttonstyle == "continue") return "button-continue";
+      if (this.buttonstyle == "return") return "button-return";
       else return "button-default";
     }
   }
@@ -51,5 +52,17 @@ export default {
   color: aliceblue;
   text-align: center;
   background-color: green;
+}
+
+.button-return {
+  width: 100px;
+  height: 40px;
+  font-size: 14px;
+  border-radius: 6px;
+  box-shadow: none;
+  border-style: none;
+  color: aliceblue;
+  text-align: center;
+  background-color: rgb(90, 90, 90);
 }
 </style>

@@ -23,10 +23,6 @@
 <script>
 import backend from "../api/backend";
 export default {
-  props: {
-    score: "",
-    id: ""
-  },
   data() {
     return {
       offers: []
