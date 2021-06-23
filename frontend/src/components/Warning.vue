@@ -1,0 +1,51 @@
+<template>
+  <div class="box">
+    <h1 class="title">
+      <br />😕 <br />
+      Parece que algo deu errado
+    </h1>
+    <p class="content">
+      Quer tentar de novo?<br />
+      É facil, basta clicar nesse botão
+    </p>
+    <router-link :to="{ name: 'Home' }">
+      <a class="button">
+        <uit-signout size="38px" class="logo" color="black" />
+      </a>
+    </router-link>
+  </div>
+</template>
+
+<script>
+import { UitSignout } from "@iconscout/vue-unicons-thinline";
+export default {
+  components: {
+    UitSignout
+  }
+};
+</script>
+
+<style scoped>
+* {
+  margin: auto;
+}
+
+.box {
+  width: 300px;
+  height: 400px;
+  background-color: rgba(41, 41, 41, 0.603);
+  border: solid 2px rgb(0, 0, 0);
+  border-radius: 20px;
+  display: inline-block;
+  margin: 10px;
+}
+.title,
+.content {
+  color: white;
+}
+
+.content {
+  font-size: 21px;
+  margin-bottom: 0px;
+}
+</style>

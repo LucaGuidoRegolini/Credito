@@ -32,13 +32,3 @@ services:
       - "3000:3000"
     volumes:
       - ..:/usr/app/
-
-  frontend:
-    build:
-      context: ../frontend
-      dockerfile: Dockerfile
-    command: npm run ${NODE_ENV}
-    ports:
-      - "3000:3000"
-    volumes:
-      - ..:/usr/app/
