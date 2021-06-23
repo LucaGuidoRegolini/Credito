@@ -29,7 +29,7 @@ module.exports = {
     try {
       const offers = await connection("credit_offers").where(
         "min_score",
-        ">=",
+        "<=",
         id
       );
       return res.status(200).json({

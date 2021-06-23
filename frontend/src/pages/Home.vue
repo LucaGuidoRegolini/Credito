@@ -54,6 +54,7 @@ export default {
   methods: {
     delete() {
       localStorage.removeItem("user");
+      localStorage.removeItem("agency");
     },
     async user() {
       const elemento = document.getElementById("cpf");

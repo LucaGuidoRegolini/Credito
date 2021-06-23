@@ -1,22 +1,25 @@
 <template>
   <div v-if="this.permission == true">
     <Header :mode="mode" :score="score" :name="name" />
-    <Users />
+    <Users :score="score" v-if="this.mode == 'user'" />
+    <Agency v-if="this.mode == 'agency'" />
   </div>
   <div v-else>
     <Warning />
   </div>
 </template>
 
-<script>
+<script scoped>
 import Warning from "../components/Warning";
 import Header from "../components/Header";
 import Users from "../components/Users";
+import Agency from "../components/Agency";
 export default {
   components: {
     Warning,
     Header,
     Users,
+    Agency,
     mode: "",
     score: "",
     name: "",

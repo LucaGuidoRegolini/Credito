@@ -48,4 +48,8 @@ export default {
   font-size: 21px;
   margin-bottom: 0px;
 }
+
+.button:hover {
+  filter: invert(100%);
+}
 </style>

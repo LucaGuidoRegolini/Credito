@@ -33,8 +33,8 @@ export default {
     };
   },
   methods: {
-    async seacher(score) {
-      const resp = await backend.get("/offers/" + score);
+    async seacher() {
+      const resp = await backend.get("/offers/");
       const offers = resp.data.offers;
       this.offers = offers;
     }
@@ -50,10 +50,9 @@ export default {
   margin: 10px;
   width: 130px;
   height: 130px;
-  background-color: #2488edb6;
+  background-color: #7621ccb6;
   border-radius: 8px;
 }
-
 .p {
   margin-bottom: 10px;
 }
