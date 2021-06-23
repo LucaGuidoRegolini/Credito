@@ -65,4 +65,8 @@ export default {
   text-align: center;
   background-color: rgb(90, 90, 90);
 }
+
+.button:hover {
+  filter: brightness(80%);
+}
 </style>

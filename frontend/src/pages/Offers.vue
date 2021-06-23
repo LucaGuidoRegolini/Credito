@@ -6,7 +6,7 @@
     <Agency v-else-if="this.mode == 'agency'" />
   </div>
   <div v-else>
-    <Warning />
+    <Warning msg="0" />
   </div>
 </template>
 

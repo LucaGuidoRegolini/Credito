@@ -7,6 +7,7 @@ const SaleController = require("./controller/SaleController");
 
 router.get("/offers", OfferController.index);
 router.get("/offers/:id", validation.validationNum, OfferController.search);
+router.get("/agency/:id", OfferController.agency);
 router.get("/offer/:id", validation.validationNum, OfferController.select);
 router.post("/offer", validation.validationOffers, OfferController.create);
 router.delete(

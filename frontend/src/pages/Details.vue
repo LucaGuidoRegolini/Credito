@@ -131,7 +131,7 @@ export default {
       if (resp.data.sucess == true) {
         alert("Credito comprado");
       } else {
-        alert("houve algum erro, tente de novo mais tarde ");
+        alert("Algo deu errado, tente de novo mais tarde");
       }
       this.$router.push({ name: "User" });
     }

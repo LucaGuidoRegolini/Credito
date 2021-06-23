@@ -1,5 +1,5 @@
 <template>
-  <div class="box">
+  <div v-if="msg == 0" class="box">
     <h1 class="title">
       <br />😕 <br />
       Parece que algo deu errado
@@ -14,11 +14,29 @@
       </a>
     </router-link>
   </div>
+  <div v-else-if="msg == 1" class="box">
+    <h1 class="title">
+      <br />😕 <br />
+      Seu Score esta muito baixo,
+    </h1>
+    <p class="content">
+      ninguem quer te oferecer credito<br />
+      tente de novo com outro CPF
+    </p>
+    <router-link :to="{ name: 'Home' }">
+      <a class="button">
+        <uit-signout size="38px" class="logo" color="black" />
+      </a>
+    </router-link>
+  </div>
 </template>
 
 <script>
 import { UitSignout } from "@iconscout/vue-unicons-thinline";
 export default {
+  props: {
+    msg: 0
+  },
   components: {
     UitSignout
   }

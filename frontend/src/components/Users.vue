@@ -1,5 +1,5 @@
 <template>
-  <div class="box">
+  <div class="container" v-if="lowScore == false">
     <router-link
       v-for="offer in offers"
       :key="offer.id"
@@ -18,18 +18,24 @@
       </div>
     </router-link>
   </div>
+  <Warning v-else msg="1" />
 </template>
 
 <script>
+import Warning from "../components/Warning";
 import backend from "../api/backend";
 export default {
   props: {
     score: "",
     id: ""
   },
+  components: {
+    Warning
+  },
   data() {
     return {
-      offers: []
+      offers: [],
+      lowScore: false
     };
   },
   methods: {
@@ -37,6 +43,9 @@ export default {
       const resp = await backend.get("/offers/" + score);
       const offers = resp.data.offers;
       this.offers = offers;
+      if (this.offers.length == 0) {
+        this.lowScore = true;
+      }
     }
   },
   beforeMount() {
@@ -77,7 +86,7 @@ export default {
   margin-right: 10px;
 }
 
-.box {
+.container {
   max-width: 430px;
   margin: 0 auto;
   display: grid;

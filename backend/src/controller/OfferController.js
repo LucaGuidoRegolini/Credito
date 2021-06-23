@@ -46,6 +46,27 @@ module.exports = {
     }
   },
 
+  async agency(req, res) {
+    const { id } = req.params;
+    try {
+      const offers = await connection("credit_offers").where(
+        "financial_agency",
+        id
+      );
+      return res.status(200).json({
+        sucess: true,
+        msg: "offers found",
+        offers,
+      });
+    } catch (error) {
+      return res.status(400).json({
+        sucess: false,
+        msg: "offers erro",
+        error: `>Erro: ${error}`,
+      });
+    }
+  },
+
   async select(req, res) {
     const { id } = req.params;
     try {

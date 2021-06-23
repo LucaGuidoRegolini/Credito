@@ -151,8 +151,4 @@ export default {
 .btn-confg {
   margin: 10px;
 }
-
-.btn-confg:hover {
-  filter: brightness(80%);
-}
 </style>
