@@ -1,12 +1,20 @@
 <template>
   <div id="app">
-    <router-view />
+    <div class="content">
+      <router-view />
+    </div>
+
+    <Footer />
   </div>
 </template>
 
 <script>
+import Footer from "./components/Footer";
 export default {
-  name: "App"
+  name: "App",
+  components: {
+    Footer,
+  },
 };
 </script>
 
@@ -21,5 +29,10 @@ export default {
 
 .space {
   flex-grow: 1;
+}
+
+.content {
+  width: 100%;
+  height: 100vh;
 }
 </style>

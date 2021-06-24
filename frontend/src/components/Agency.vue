@@ -98,13 +98,15 @@ export default {
 }
 
 .box {
-  max-width: 430px;
+  max-width: 480px;
   margin: 0 auto;
-  display: grid;
-  gap: 1rem;
+  margin-top: 30px;
 
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  align-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: row;
+  text-align: center;
 }
 
 .card-plus:hover {

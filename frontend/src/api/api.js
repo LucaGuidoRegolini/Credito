@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const apiUrl = "http://localhost:2000";
+const apiUrl = "https://api-credito.herokuapp.com/";
 
 const api = axios.create({
-  baseURL: apiUrl
+  baseURL: apiUrl,
 });
 
 export default api;

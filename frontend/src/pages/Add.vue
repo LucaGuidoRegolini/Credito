@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header :mode="mode" :score="score" :name="name" />
+    <Header :mode="mode" :name="name" />
     <form @submit.prevent="grava()" onselectstart="return false">
       <div>
         <label for="name">Valor do emprestimo:</label>
@@ -28,7 +28,7 @@
           @activated="create()"
           class="btn-confg"
           type="button"
-          text="Comprar"
+          text="Continuar"
         />
       </div>
     </form>

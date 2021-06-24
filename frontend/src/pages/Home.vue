@@ -101,8 +101,8 @@ export default {
 
 <style scoped>
 .Home {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: grid;
   place-items: center;
 }
